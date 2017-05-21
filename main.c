@@ -31,11 +31,11 @@ int  main(int argc, char* argv[])
     if(strcmp(argv[3], "shellcode") == 0)
     {
         // On récupère le shellcode et sa taille
+        printf("======== SHELLCODE ========\n");
         MallocRes res = openFile(hConsole, saved_attributes, argv[2]);
         shellcode = res.buffer;
         size = res.size;
         kind = SHELLCODE;
-        printf("======== SHELLCODE ========\n");
     }
         // si arg 3 = DLL
     else if(strcmp(argv[3], "dll") == 0)
@@ -55,7 +55,7 @@ int  main(int argc, char* argv[])
     // Si on ne parvient pas à ouvrir le shellcode
     if(shellcode == NULL || size == 0)
     {
-        printf("[!] Problème lors de l'ouverture du shellcode ");
+        printf("[!] Cannot open file ");
     }
     else
     {
